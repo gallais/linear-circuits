@@ -38,13 +38,15 @@ namespace Circuits
                               Nil)
                  -> Term old TyUnit Nil
 
-      Mux : (output  : Term a (TyPort (OUTPUT, datatype)) b)
+      Mux : {datatype : DType}
+         -> (output  : Term a (TyPort (OUTPUT, datatype)) b)
          -> (control : Term b (TyPort (INPUT,  LOGIC))    c)
          -> (inputA  : Term c (TyPort (INPUT,  datatype)) d)
          -> (inputB  : Term d (TyPort (INPUT,  datatype)) e)
                     -> Term a TyGate e
 
-      Dup : (outA  : Term a (TyPort (OUTPUT, datatype)) b)
+      Dup : {datatype : DType}
+         -> (outA  : Term a (TyPort (OUTPUT, datatype)) b)
          -> (outB  : Term b (TyPort (OUTPUT, datatype)) c)
          -> (input : Term c (TyPort (INPUT,  datatype)) d)
                   -> Term a TyGate d
@@ -68,7 +70,8 @@ namespace Circuits
                     -> (input  : Term b (TyPort (INPUT, (BVECT (W (S Z) ItIsSucc) datatype))) c)
                               -> Term a TyGate c
 
-      IndexEdge : (pivot : Nat)
+      IndexEdge : {size : Whole}
+               -> (pivot : Nat)
                -> (idx   : Index size pivot free)
                -> (outu  : Term a (TyPort (OUTPUT,             datatype))  b)
                -> (outf  : Term b (TyPort (OUTPUT, (BVECT free datatype))) c)

@@ -1,6 +1,6 @@
 package idealised
 
-depends = contrib
+depends = contrib, linear
 
 sourcedir = "src"
 

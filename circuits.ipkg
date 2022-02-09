@@ -1,6 +1,6 @@
 package circuits
 
-depends = contrib
+depends = contrib, linear
 
 sourcedir = "src"
 
@@ -16,6 +16,7 @@ modules =
         , Circuits.Idealised.Types
         , Circuits.Idealised.Terms
         , Circuits.Idealised.Interp
+        , Circuits.Idealised.Denotation
 
         , Circuits.Idealised.AST
         , Circuits.Idealised.Lexer
